@@ -173,19 +173,36 @@ public void keepOnlyBlue()
     } 
   }
   
+  public void mirrorHorizontalBotToTop()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int height = pixels.length;
+    for (int row = 0; row < pixels.length/2; row++)
+    {
+      for (int col = 0; col < pixels[0].length; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[height-1-row][col];
+        topPixel.setColor(bottomPixel.getColor());
+      }
+    } 
+  }
+  
   public void mirrorHorizontal()
   {
     Pixel[][] pixels = this.getPixels2D();
     Pixel topPixel = null;
     Pixel bottomPixel = null;
-    int width = pixels[0].length;
-    for (int row = 0; row < pixels.length; row++)
+    int height = pixels.length;
+    for (int row = 0; row < pixels.length/2; row++)
     {
-      for (int col = 0; col < width / 2; col++)
+      for (int col = 0; col < pixels[0].length; col++)
       {
         topPixel = pixels[row][col];
-        bottomPixel = pixels[row][width - 1 - col];
-        topPixel.setColor(bottomPixel.getColor());
+        bottomPixel = pixels[height-1-row][col];
+        bottomPixel.setColor(topPixel.getColor());
       }
     } 
   }
@@ -210,6 +227,50 @@ public void keepOnlyBlue()
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+  
+  public void mirrorSnowman()
+  {
+    int mirrorPoint = 196;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 158; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 104; col < 295; col++)
+      {
+        
+        topPixel = pixels[row][col];      
+        bottomPixel= pixels[mirrorPoint+mirrorPoint-row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
+  
+  public void mirrorGull()
+  {
+    int mirrorPoint = 196;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int count = 0;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 158; row < mirrorPoint; row++)
+    {
+      // loop from 13 to just before the mirror point
+      for (int col = 104; col < 295; col++)
+      {
+        
+        topPixel = pixels[row][col];      
+        bottomPixel= pixels[mirrorPoint+mirrorPoint-row][col];
+        bottomPixel.setColor(topPixel.getColor());
       }
     }
   }

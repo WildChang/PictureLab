@@ -70,8 +70,8 @@ public class PictureTester
   {
       Picture seagull= new Picture("seagull.jpg");
       seagull.explore();
-      //seagull.mirrorGull();
-      //seagull.explore();
+      seagull.mirrorGull();
+      seagull.explore();
     }
   
   /** Method to test the collage method */
@@ -124,7 +124,7 @@ public class PictureTester
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
-    //testCollage();
+    testCollage();
     //testCopy();
     //testEdgeDetection();
     //testEdgeDetection2();

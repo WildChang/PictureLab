@@ -73,6 +73,7 @@ public class PictureTester
       seagull.mirrorGull();
       seagull.explore();
     }
+    
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -82,6 +83,13 @@ public class PictureTester
     canvas.explore();
   }
   
+    public static void TestMyCollage()
+    {
+        Picture canvas = new Picture("seagull.jpg");
+        
+        canvas.myCollage();
+        canvas.explore();
+    }
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {

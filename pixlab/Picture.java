@@ -307,19 +307,20 @@ public void keepOnlyBlue()
   }
   
   public void copy(Picture fromPic, 
-                 int startRow, int startCol, int endRow, int endCol)
+                 int startRow, int startCol,
+                 int startRowFrom, int startColFrom, int endRow, int endCol)
   {
     Pixel fromPixel = null;
     Pixel toPixel = null;
     Pixel[][] toPixels = this.getPixels2D();
     Pixel[][] fromPixels = fromPic.getPixels2D();
-    for (int fromRow = 0, toRow = startRow; 
+    for (int fromRow = startRowFrom, toRow = startRow; 
          fromRow < endRow &&
          toRow < toPixels.length; 
          fromRow++, toRow++)
     {
-      for (int fromCol = 0, toCol = startCol; 
-           fromCol < fromPixels[0].length &&
+      for (int fromCol = startColFrom, toCol = startCol; 
+           fromCol < endCol &&
            toCol < toPixels[0].length;  
            fromCol++, toCol++)
       {
@@ -329,7 +330,17 @@ public void keepOnlyBlue()
       }
     }   
   }
-
+  public void myCollage()
+  {
+      Picture seagull = new Picture ("seagull.jpg");
+      Picture swan = new Picture ("swan.jpg");
+      Picture color = new Picture ("seagull.jpg");
+     
+      color.zeroGreen();
+      this.copy(color, 238, 130, 236, 235, 321, 345); 
+      this.copy(swan, 58, 325, 66, 73, 279, 391);
+      this.copy(seagull, 58, 325, 34, 21, 147, 245);
+    }
   /** Method to create a collage of several pictures */
   public void createCollage()
   {

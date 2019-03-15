@@ -73,7 +73,13 @@ public class PictureTester
       seagull.mirrorGull();
       seagull.explore();
     }
-    
+    public static void testCopy()
+    {
+        Picture ocean = new Picture("beach.jpg");
+        Picture flower = new Picture("snowman.jpg");
+        ocean.copy(flower, 10, 10, 60, 160, 180, 230);
+        ocean.explore();
+    }
   
   /** Method to test the collage method */
   public static void testCollage()
@@ -133,8 +139,8 @@ public class PictureTester
     //testMirrorGull();
     //testMirrorDiagonal();
     testCollage();
-    //testCopy();
-    //testEdgeDetection();
+    testCopy();
+    testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

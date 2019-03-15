@@ -383,7 +383,23 @@ public void keepOnlyBlue()
           leftPixel.setColor(Color.WHITE);
       }
     }
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; 
+           col < pixels[0].length-1; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[row][col+1];
+        bottomColor = bottomPixel.getColor();
+        if (leftPixel.colorDistance(rightColor) > 
+            edgeDist)
+          leftPixel.setColor(Color.BLACK);
+        else
+          leftPixel.setColor(Color.WHITE);
+      }
+    }
   }
+  
   
   
   /* Main method for testing - each class in Java can have a main 
